@@ -1,0 +1,36 @@
+html {
+  background-image: url(image/img-fon.jpg);
+  background-size: cover;  
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.qwe {
+  display: flex;
+  
+}
+
+#Btn {
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+#text {
+  border-radius: 5px;
+  box-shadow:white;
+  padding: 10px;
+}
+
+/* .younger-div {
+justify-content: flex-start;
+} */

@@ -1,18 +1,19 @@
-document.getElementById('Btn').onclick = function() {
+document.getElementById('Btn').onclick = function () {
   const inp = document.getElementById('text');
   const type = inp.value;
   inp.value = '';
   const list = document.createElement('div');
   list.innerText = type;
-  document.getElementsByClassName('main')[0].appendChild(list);
- 
+  // list.classList.add('younger-div');
+  document.getElementsByClassName('todo-list')[0].appendChild(list);
   const press = document.createElement('input');
   press.type = 'button';
   press.value = 'Delete';
   list.appendChild(press);
-   press.addEventListener("click", (event) => {
+  press.addEventListener("click", (event) => {
     list.remove('div')
-     });
+  });
 
 
 };
+
