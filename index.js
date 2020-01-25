@@ -10,6 +10,9 @@ document.getElementById('Btn').onclick = function() {
   press.type = 'button';
   press.value = 'Delete';
   list.appendChild(press);
+   press.addEventListener("click", (event) => {
+    list.remove('div')
+     });
 
 
-}
+};
