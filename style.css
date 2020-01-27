@@ -34,6 +34,8 @@ body {
   border-radius: 5px;
   box-shadow: crimson;
   box-shadow: 0 0 5px 2px #ccf6ff;
+  background-color: #50b8df;
+  color: white;
 }
 
 #text {
