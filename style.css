@@ -3,11 +3,20 @@ html {
   background-size: cover;  
 }
 
+body {
+  
+}
+
 .main {
   display: flex;
   align-items: center;
   padding-top: 50px;
   flex-direction: column;
+  background-color: #ebebeb;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-bottom: 50px;
+  border-radius: 5px;
 }
 
 .todo-list {
@@ -23,14 +32,22 @@ html {
 #Btn {
   margin-left: 5px;
   border-radius: 5px;
+  box-shadow: crimson;
+  box-shadow: 0 0 5px 2px #ccf6ff;
 }
 
 #text {
   border-radius: 5px;
   box-shadow:white;
   padding: 10px;
+  box-shadow: 0 0 5px 2px #84a7c3;
 }
 
+h1 {
+  color: #867c7d;
+  background-color: #fcfcfc;
+  margin-top: 0px;
+}
 /* .younger-div {
 justify-content: flex-start;
 } */
