@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  margin: 0;
   
 }
 
@@ -22,6 +23,23 @@ body {
 .todo-list {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+  background-color: white;
+  
+}
+
+.todo-button-delete {
+  margin-left: 20px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  border: 0.5px solid gray;
+  padding: 5px;
+  border-radius: 3px;
+  color: #5b6f90;
 }
 
 .qwe {
@@ -31,7 +49,7 @@ body {
 
 #Btn {
   margin-left: 5px;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: crimson;
   box-shadow: 0 0 5px 2px #ccf6ff;
   background-color: #50b8df;
@@ -50,6 +68,17 @@ h1 {
   background-color: #fcfcfc;
   margin-top: 0px;
 }
-/* .younger-div {
-justify-content: flex-start;
-} */
+
+h2 {
+  color: #556f94;
+  font-family: sans-serif;
+  font-size: xx-large;
+}
+
+.task {
+  margin-right: 15px;
+  margin-top: 10px;
+  color:#556f94 ;
+  font-family: sans-serif;
+  font-weight:bold
+}
