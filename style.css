@@ -23,19 +23,25 @@ body {
 .todo-list {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   background-color: white;
   
 }
 
 .todo-button-delete {
   margin-left: 20px;
+  background-color: #50b8df;
+  box-shadow: 0 0 5px 2px #ccf6ff;
+  color: white;
+  border-radius: 5px;
+  /* background-image: url(image/basket.png) */
+  /* src: url(image/basket.png); */
 }
 
 .todo-item {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border: 0.5px solid gray;
   padding: 5px;
   border-radius: 3px;
@@ -44,8 +50,10 @@ body {
 
 .qwe {
   display: flex;
-  
+  margin-bottom: 20px;
 }
+
+
 
 #Btn {
   margin-left: 5px;
