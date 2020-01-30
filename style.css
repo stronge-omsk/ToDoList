@@ -33,7 +33,11 @@ body {
   background-color: #50b8df;
   box-shadow: 0 0 5px 2px #ccf6ff;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   /* background-image: url(image/basket.png) */
   /* src: url(image/basket.png); */
 }
@@ -44,8 +48,14 @@ body {
   /* margin-top: 20px; */
   border: 0.5px solid gray;
   padding: 5px;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #5b6f90;
+  min-width: 400px;
+  justify-content: space-between;
+}
+
+.todo-item:not(:first-child) {
+  border-bottom: 1px;
 }
 
 .qwe {
@@ -56,12 +66,17 @@ body {
 
 
 #Btn {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-left: 5px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: crimson;
   box-shadow: 0 0 5px 2px #ccf6ff;
   background-color: #50b8df;
   color: white;
+
 }
 
 #text {
