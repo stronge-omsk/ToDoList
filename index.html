@@ -2,26 +2,27 @@
 <html>
 
 <head>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  <!-- <div id="test" onclick="$('#test').hide ()">Test</div> -->
   <h1>Task-list</h1>
-  <div class="main" >
+  <ol class="main" >
     <h2>Things To Do:</h2>
     <form name="main-form" action="index.html" method="dialog">
       <div class="qwe">
        <div class="task">Task</div>
        <input id="text" placeholder="What to do?">
-        <button id="Btn">Save</button>
+       <button id="Btn">Save</button>
       </div>
     </form>
-    <div class="todo-list">
-    </div>
+    <ol class="todo-list">
+    </ol>
   </div>
 
   <script src="index.js"></script>
 </body>
 
-</html>s
+</html>
