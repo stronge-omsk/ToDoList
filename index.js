@@ -26,6 +26,7 @@ function renderToDoList() {
     //   li.appendChild(document.createTextNode(todoList[i]));
     const deleteBtn = $('<input type="button">');
     // deleteBtn.attr('type', 'button');
+    deleteBtn.addClass('todo-button-delete')
     deleteBtn.val('Delete');   //= 'Delete';
     $(deleteBtn).on('click', function () {
       deleteItem(i);

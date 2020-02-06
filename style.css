@@ -23,8 +23,9 @@ body {
 .todo-list {
   display: flex;
   flex-direction: column;
-  /* margin-top: 20px; */
+  margin-top: 20px;
   background-color: white;
+  padding-left: 0px;
   
 }
 
@@ -42,13 +43,19 @@ body {
   /* src: url(image/basket.png); */
 }
 
+.todo-button-delete:hover {
+  background-color: red;
+}
+
 .todo-item {
   display: flex;
   align-items: center;
   /* margin-top: 20px; */
-  border: 0.5px solid gray;
+  border-top: 0.5px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #5b6f90;
   min-width: 400px;
   justify-content: space-between;
@@ -77,6 +84,10 @@ body {
   background-color: #50b8df;
   color: white;
 
+}
+
+#Btn:hover {
+  background-color:green;
 }
 
 #text {
