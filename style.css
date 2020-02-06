@@ -1,6 +1,7 @@
 html {
   background-image: url(image/img-fon.jpg);
   background-size: cover;  
+  background-attachment: fixed;
 }
 
 body {
@@ -18,6 +19,7 @@ body {
   margin-right: 30%;
   padding-bottom: 50px;
   border-radius: 5px;
+  padding-right: 25px;
 }
 
 .todo-list {
@@ -39,12 +41,12 @@ body {
   padding-right: 14px;
   padding-top: 8px;
   padding-bottom: 8px;
-  /* background-image: url(image/basket.png) */
-  /* src: url(image/basket.png); */
+ 
 }
 
 .todo-button-delete:hover {
   background-color: red;
+  cursor: pointer;
 }
 
 .todo-item {
@@ -88,6 +90,7 @@ body {
 
 #Btn:hover {
   background-color:green;
+  cursor: pointer;
 }
 
 #text {
@@ -115,4 +118,30 @@ h2 {
   color:#556f94 ;
   font-family: sans-serif;
   font-weight:bold
+}
+
+@media screen and (max-width:1200px) {
+  .qwe {
+    margin-right: 20px;
+    flex-direction: column;
+  }
+
+  #Btn {
+    margin-top: 20px;
+  }
+
+  .main {
+    min-width: fit-content;
+  }
+
+  .task {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+  }
+
+ h2 {
+   color: red;
+ }
 }
