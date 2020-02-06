@@ -10,16 +10,16 @@ body {
 }
 
 .main {
+  
   display: flex;
   align-items: center;
-  padding-top: 50px;
   flex-direction: column;
   background-color: #ebebeb;
-  margin-left: 30%;
-  margin-right: 30%;
-  padding-bottom: 50px;
+  margin: 0 auto;
+  max-width: 50%;
   border-radius: 5px;
-  padding-right: 25px;
+  padding: 50px 25px;
+
 }
 
 .todo-list {
