@@ -6,6 +6,7 @@ html {
 
 body {
   margin: 0;
+  font-family: 'Girassol', cursive;
   
 }
 
@@ -108,8 +109,9 @@ h1 {
 
 h2 {
   color: #556f94;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: xx-large;
+  font-family: 'Girassol', cursive;
 }
 
 .task {
