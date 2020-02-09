@@ -6,7 +6,14 @@ function addItem() {
   if (!todoInput.val()) {
     return;
   }
-  todoList.push(todoInput.val())
+  
+  const item = {
+    date: new Date,
+    name: todoInput.val(),
+    completed: false
+  };
+  // todoList.push(accept);
+  todoList.push(item);
   todoInput.val('');
   renderToDoList();
 
@@ -20,9 +27,13 @@ function addItem() {
 function renderToDoList() {
   const list = $('.todo-list');
   list.empty();
-  for (let i = 0; i < todoList.length; i++) {
+  for (let i = 0; i < todoList.length; i++) {    
+    const todoItem = todoList[i];
     const li = $('<li>') // const li = document.createElement('li');
-    li.text(todoList[i])
+    const date = $('<div class="date">');
+    date.text(todoItem.date.getHours() + ':' + todoItem.date.getMinutes() + ':' + todoItem.date.getSeconds());
+    const name = $('<div class="name">');
+    name.text(todoItem.name);
     //   li.appendChild(document.createTextNode(todoList[i]));
     const deleteBtn = $('<input type="button">');
     // deleteBtn.attr('type', 'button');
@@ -31,10 +42,26 @@ function renderToDoList() {
     $(deleteBtn).on('click', function () {
       deleteItem(i);
     })
+    const accept = $('<input type="button">');
+    accept.val('Done');
+    accept.addClass('todo-button-accept')
+    if (todoItem.completed) {
+      li.addClass('button-cross-out')
+    }
+    $(accept).on('click', function (){
+      todoList[i].completed = true;
+      renderToDoList();
+      if(todoItem.completed) {
+        accept.addClass('button-cross-out:active')       
+      }
+      
+    })
+    li.append(name);
+    li.append(date);
     li.append(deleteBtn);
+    li.append(accept);
     li.addClass('todo-item');
     list.append(li);
-
   }
 
 }
@@ -134,4 +161,4 @@ function deleteItem(index) {
 //   }
 
 
-// };
+// }
