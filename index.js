@@ -52,7 +52,7 @@ function renderToDoList() {
       todoList[i].completed = true;
       renderToDoList();
       if(todoItem.completed) {
-        accept.addClass('button-cross-out:active')       
+        li.addClass('todo-button-accept:active')       
       }
       
     })
