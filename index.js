@@ -6,24 +6,15 @@ function addItem() {
   if (!todoInput.val()) {
     return;
   }
-  
   const item = {
     date: new Date,
     name: todoInput.val(),
     completed: false
   };
-  // todoList.push(accept);
   todoList.push(item);
   todoInput.val('');
   renderToDoList();
-
 };
-// document.getElementById('Btn').addEventListener('click', addItem)
-// const b = document.createElement('button')
-// document.body.appendChild(b)
-// console.log(b);
-// $('#Btn').on('click', addItem)
-
 function renderToDoList() {
   const list = $('.todo-list');
   list.empty();
@@ -35,27 +26,27 @@ function renderToDoList() {
     const name = $('<div class="name">');
     name.text(todoItem.name);
     //   li.appendChild(document.createTextNode(todoList[i]));
-    const deleteBtn = $('<input type="button">');
+    const deleteBtn = $('<input type="image" src="image/delete.png">');
     // deleteBtn.attr('type', 'button');
     deleteBtn.addClass('todo-button-delete')
-    deleteBtn.val('Delete');   //= 'Delete';
+    // deleteBtn.val('Delete');   //= 'Delete';
     $(deleteBtn).on('click', function () {
       deleteItem(i);
     })
-    const accept = $('<input type="button">');
-    accept.val('Done');
+    const accept = $('<input type="image" src="image/check.png">');  //$('<input type="button">');
+    // accept.val('Done');
     accept.addClass('todo-button-accept')
     if (todoItem.completed) {
       li.addClass('button-cross-out')
     }
     $(accept).on('click', function (){
       todoList[i].completed = true;
-      renderToDoList();
-      if(todoItem.completed) {
-        li.addClass('todo-button-accept:active')       
-      }
-      
+      renderToDoList();     
     })
+    if(todoItem.completed) {
+      li.addClass('button-accept')
+    }
+    
     li.append(name);
     li.append(date);
     li.append(deleteBtn);
@@ -63,15 +54,10 @@ function renderToDoList() {
     li.addClass('todo-item');
     list.append(li);
   }
-
 }
-
 function deleteItem(index) {
   todoList.splice(index, 1)
-
-
   renderToDoList();
-
 }
 
 
