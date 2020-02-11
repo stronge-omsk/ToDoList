@@ -44,7 +44,7 @@ function renderToDoList() {
       renderToDoList();     
     })
     if(todoItem.completed) {
-      li.addClass('button-accept')
+      accept.addClass('button-accept')
     }
     
     li.append(name);
