@@ -12,15 +12,25 @@
 <body>
   <!-- <div id="test" onclick="$('#test').hide ()">Test</div> -->
   <h1>Task-list</h1>
-  <div class="main" >
+  <div class="main">
     <h2>Things To Do:</h2>
     <form name="main-form" action="index.html" method="dialog">
       <div class="qwe">
-       <div class="task">Task</div>
-       <input id="text" placeholder="What to do?">
-       <button id="Btn">Save</button>
+        <div class="task">Task</div>
+        <input id="text" placeholder="What to do?">
+        <button id="Btn">Save</button>
+      </div>
+      <div class="main-search">
+        <input class="search" placeholder="Search...">
+        <button class="search-tasks">Search tasks</button>
+      </div>
+      <div class="sort">
+      <img id="sort-ascending" src="image/sort ascending возрастанию-40.png">
+      <img id="sort-descending"  src="image/sort descending убыванию-40.png">
+
       </div>
     </form>
+
     <ol class="todo-list">
     </ol>
   </div>

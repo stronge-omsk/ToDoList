@@ -1,5 +1,8 @@
 const todoList = [];
 $('#Btn').on('click', addItem)
+$('.search-tasks').on('click', search)
+$('#sort-ascending').on('click', sort_ascending)
+$('#sort-descending').on('click', sort_descending)
 
 function addItem() {
   const todoInput = $('#text');
@@ -11,15 +14,17 @@ function addItem() {
     name: todoInput.val(),
     completed: false
   };
+    
   todoList.push(item);
   todoInput.val('');
-  renderToDoList();
+  renderToDoList(todoList);
 };
-function renderToDoList() {
+
+function renderToDoList(array) {
   const list = $('.todo-list');
   list.empty();
-  for (let i = 0; i < todoList.length; i++) {    
-    const todoItem = todoList[i];
+  for (let i = 0; i < array.length; i++) {
+    const todoItem = array[i];   
     const li = $('<li>') // const li = document.createElement('li');
     const date = $('<div class="date">');
     date.text(todoItem.date.getHours() + ':' + todoItem.date.getMinutes() + ':' + todoItem.date.getSeconds());
@@ -39,14 +44,14 @@ function renderToDoList() {
     if (todoItem.completed) {
       li.addClass('button-cross-out')
     }
-    $(accept).on('click', function (){
-      todoList[i].completed = true;
-      renderToDoList();     
+    $(accept).on('click', function () {
+      todoItem.completed = true;
+      renderToDoList(array);
     })
-    if(todoItem.completed) {
+    if (todoItem.completed) {
       accept.addClass('button-accept')
     }
-    
+
     li.append(name);
     li.append(date);
     li.append(deleteBtn);
@@ -54,10 +59,45 @@ function renderToDoList() {
     li.addClass('todo-item');
     list.append(li);
   }
+
 }
+
+function sort_ascending() {
+  todoList.sort(function(a,b){
+    if (a.name > b.name) {
+      return 1;
+    } else if (a.name < b.name) {
+      return -1;
+    } else if (a.name == b.name) {
+      return 0;
+    }
+  });
+  renderToDoList(todoList);
+
+}
+
+function sort_descending () {
+  todoList.sort(function(a,b){
+    if (a.name > b.name) {
+      return -1;
+    } else if (a.name < b.name) {
+      return 1;
+    } else if (a.name == b.name) {
+      return 0;
+    }
+  })
+  renderToDoList(todoList);
+}
+
 function deleteItem(index) {
   todoList.splice(index, 1)
-  renderToDoList();
+  renderToDoList(todoList);
+}
+
+function search() {
+  const srch = $('.search').val();
+  const filtered = todoList.filter(todoItem => todoItem.name.indexOf(srch) !== -1);
+  renderToDoList(filtered)
 }
 
 
@@ -118,9 +158,6 @@ function deleteItem(index) {
 //     list.append(li);
 //   })
 // });
-
-
-
 
 
 // // const todoList = [];

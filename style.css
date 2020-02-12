@@ -69,6 +69,7 @@ body {
 }
 
 
+
 .button-cross-out {
   /* text-decoration: line-through; */
   text-decoration-color: red;
@@ -108,6 +109,23 @@ body {
 
 }
 
+.sort {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  
+}
+
+#sort-ascending {
+  cursor: pointer;
+}
+
+#sort-descending {
+  cursor: pointer;
+}
+
+
+
 .date {
   flex: 1;
 }
@@ -123,6 +141,31 @@ body {
   margin-bottom: 20px;
 }
 
+.main-search {
+  display: flex;
+  padding-left: 50px;
+}
+
+.search {
+  border-radius: 5px;
+  box-shadow:white;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px #84a7c3;
+
+}
+
+.search-tasks {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+  box-shadow: crimson;
+  box-shadow: 0 0 5px 2px #ccf6ff;
+  background-color: #50b8df;
+  color: white;
+}
 
 
 #Btn {
