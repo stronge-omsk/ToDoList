@@ -61,6 +61,8 @@ function renderToDoList(array) {
   }
 
 }
+console.log(1);
+
 
 function sort_ascending() {
   todoList.sort(function(a,b){
