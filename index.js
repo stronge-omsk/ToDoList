@@ -25,21 +25,18 @@ function renderToDoList(array) {
   list.empty();
   for (let i = 0; i < array.length; i++) {
     const todoItem = array[i];   
-    const li = $('<li>') // const li = document.createElement('li');
+    const li = $('<li>');
     const date = $('<div class="date">');
     date.text(todoItem.date.getHours() + ':' + todoItem.date.getMinutes() + ':' + todoItem.date.getSeconds());
     const name = $('<div class="name">');
     name.text(todoItem.name);
-    //   li.appendChild(document.createTextNode(todoList[i]));
+    const check = $('<input type="checkbox" id="cheked">')
     const deleteBtn = $('<input type="image" src="image/delete.png">');
-    // deleteBtn.attr('type', 'button');
     deleteBtn.addClass('todo-button-delete')
-    // deleteBtn.val('Delete');   //= 'Delete';
     $(deleteBtn).on('click', function () {
       deleteItem(i);
     })
-    const accept = $('<input type="image" src="image/check.png">');  //$('<input type="button">');
-    // accept.val('Done');
+    const accept = $('<input type="image" src="image/check.png">');
     accept.addClass('todo-button-accept')
     if (todoItem.completed) {
       li.addClass('button-cross-out')
@@ -51,7 +48,7 @@ function renderToDoList(array) {
     if (todoItem.completed) {
       accept.addClass('button-accept')
     }
-
+    li.append(check);
     li.append(name);
     li.append(date);
     li.append(deleteBtn);
@@ -59,10 +56,7 @@ function renderToDoList(array) {
     li.addClass('todo-item');
     list.append(li);
   }
-
 }
-console.log(1);
-
 
 function sort_ascending() {
   todoList.sort(function(a,b){
@@ -101,89 +95,3 @@ function search() {
   const filtered = todoList.filter(todoItem => todoItem.name.indexOf(srch) !== -1);
   renderToDoList(filtered)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let i = 0;
-// while (i < 10) {
-//   i++;
-// }
-
-
-// const todoList = [];
-// document.getElementById('Btn').addEventListener('click', function () {
-//   const list = document.getElementsByClassName('todo-list')[0];
-//   list.value = '';
-//   const todoInput = document.getElementById('text').value;
-//   todoList.push(todoInput)
-
-//   const item = document.createElement('li');
-//    todoList.forEach (function() {
-//     const listItem = document.createTextNode(todoList[i]);
-//     const li = document.createElement('li');
-//     li.appendChild(document.createTextNode(todoList[i]));
-//     list.append(li);
-//   })
-// });
-
-
-// // const todoList = [];
-// document.getElementById('Btn').onclick = function () {
-//   const inp = document.getElementById('text');
-//   const type = inp.value;
-//   inp.value = '';
-//   const todoList = [1];
-//   todoList.forEach(myFunction);
-//   function myFunction() {
-//     const list = document.createElement('div');
-//     list.innerText = type;
-//     list.classList.add('todo-item');
-//     document.getElementsByClassName('todo-list')[0].appendChild(list);
-//     const press = document.createElement('input');
-//     press.type = 'button';
-//     press.value = 'Delete';
-//     press.classList.add('todo-button-delete');
-//     list.appendChild(press);
-//     press.addEventListener("click", (event) => {
-//       list.remove('div')
-
-//     });
-//   }
-
-
-// }

@@ -124,7 +124,27 @@ body {
   cursor: pointer;
 }
 
+#cheked {
+display: flex;
+margin-right: 20px;
+height: 25px;
+width: 25px;
 
+
+}
+
+#chk-delete {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+  box-shadow: crimson;
+  box-shadow: 0 0 5px 2px #ccf6ff;
+  background-color: #50b8df;
+  color: white;
+}
 
 .date {
   flex: 1;
