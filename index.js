@@ -1,8 +1,23 @@
 const todoList = [];
 $('#Btn').on('click', addItem)
 $('.search-tasks').on('click', search)
-$('#sort-ascending').on('click', sort_ascending)
-$('#sort-descending').on('click', sort_descending)
+$('.sortName').on('click', sortName)
+$('.sortDate').on('click', sortDate)
+$('#chk-delete').on('click', function () {
+  $('.cheked').each(function (index, checkbox) {
+    if ($(checkbox).prop("checked")) {
+      deleteSelected(index);
+    }
+  })
+
+
+  renderToDoList(todoList);
+});
+
+const qwe = $('.sortName');
+if (qwe === true) {
+
+}
 
 function addItem() {
   const todoInput = $('#text');
@@ -14,7 +29,7 @@ function addItem() {
     name: todoInput.val(),
     completed: false
   };
-    
+
   todoList.push(item);
   todoInput.val('');
   renderToDoList(todoList);
@@ -24,18 +39,21 @@ function renderToDoList(array) {
   const list = $('.todo-list');
   list.empty();
   for (let i = 0; i < array.length; i++) {
-    const todoItem = array[i];   
+    const todoItem = array[i];
     const li = $('<li>');
+    // const sort = $('<div class="sortItem">');
     const date = $('<div class="date">');
     date.text(todoItem.date.getHours() + ':' + todoItem.date.getMinutes() + ':' + todoItem.date.getSeconds());
     const name = $('<div class="name">');
     name.text(todoItem.name);
-    const check = $('<input type="checkbox" id="cheked">')
+    const check = $('<input type="checkbox" class="cheked">')
     const deleteBtn = $('<input type="image" src="image/delete.png">');
     deleteBtn.addClass('todo-button-delete')
     $(deleteBtn).on('click', function () {
       deleteItem(i);
     })
+    //$("#myCheckbox").prop("checked");
+
     const accept = $('<input type="image" src="image/check.png">');
     accept.addClass('todo-button-accept')
     if (todoItem.completed) {
@@ -48,6 +66,7 @@ function renderToDoList(array) {
     if (todoItem.completed) {
       accept.addClass('button-accept')
     }
+
     li.append(check);
     li.append(name);
     li.append(date);
@@ -58,13 +77,38 @@ function renderToDoList(array) {
   }
 }
 
-function sort_ascending() {
-  todoList.sort(function(a,b){
-    if (a.name > b.name) {
+let ascDate = true;
+let ascName = true;
+
+function sortDate() {
+  if(ascDate) {
+    sort_ascending('date');
+    ascDate = false;
+  }
+  else {
+    sort_descending('date');
+    ascDate = true;
+  }
+}
+
+function sortName() {
+  if (ascName) {
+    sort_ascending('name');
+    ascName = false;
+  }
+  else {
+    sort_descending('name');
+    ascName = true;
+  }
+}
+
+function sort_ascending(sortName) {
+  todoList.sort(function (a, b) {
+    if (a[sortName] > b[sortName]) {
       return 1;
-    } else if (a.name < b.name) {
+    } else if (a[sortName] < b[sortName]) {
       return -1;
-    } else if (a.name == b.name) {
+    } else if (a[sortName] == b[sortName]) {
       return 0;
     }
   });
@@ -72,13 +116,13 @@ function sort_ascending() {
 
 }
 
-function sort_descending () {
-  todoList.sort(function(a,b){
-    if (a.name > b.name) {
+function sort_descending(sortName) {
+  todoList.sort(function (a, b) {
+    if (a[sortName] > b[sortName]) {
       return -1;
-    } else if (a.name < b.name) {
+    } else if (a[sortName] < b[sortName]) {
       return 1;
-    } else if (a.name == b.name) {
+    } else if (a[sortName] == b[sortName]) {
       return 0;
     }
   })
@@ -88,6 +132,10 @@ function sort_descending () {
 function deleteItem(index) {
   todoList.splice(index, 1)
   renderToDoList(todoList);
+}
+
+function deleteSelected(index) {
+  todoList.splice(index, 1)
 }
 
 function search() {

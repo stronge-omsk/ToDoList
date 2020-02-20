@@ -111,9 +111,24 @@ body {
 
 .sort {
   display: flex;
-  justify-content: center;
-  padding-top: 15px;
+  justify-content: start;
+  margin-top: 20px;
   
+}
+
+.sortName {
+  margin-left: 90px;
+  cursor: pointer;
+  color: #556f94;
+  font-size: x-large;
+}
+
+.sortDate {
+  margin-left: 80px;
+  cursor: pointer;
+  color: #556f94;
+  font-size: x-large;
+
 }
 
 #sort-ascending {
@@ -124,7 +139,7 @@ body {
   cursor: pointer;
 }
 
-#cheked {
+.cheked {
 display: flex;
 margin-right: 20px;
 height: 25px;
