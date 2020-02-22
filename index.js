@@ -1,18 +1,25 @@
-const todoList = [];
+let todoList = [];
+todoList = JSON.parse(localStorage.getItem('todoList'));
+todoList.forEach(function(todoItem) {
+  todoItem.date = new Date(todoItem.date);
+})
+renderToDoList(todoList);
 $('#Btn').on('click', addItem)
 $('.search-tasks').on('click', search)
 $('.sortName').on('click', sortName)
 $('.sortDate').on('click', sortDate)
+
+
 $('#chk-delete').on('click', function () {
-  $('.cheked').each(function (index, checkbox) {
-    if ($(checkbox).prop("checked")) {
-      deleteSelected(index);
+ 
+  todoList.forEach(function (todoItem, index) {
+    if (todoItem.check === true) {
+      todoList.splice(index, 1);
     }
-  })
-
-
+  });
   renderToDoList(todoList);
 });
+
 
 const qwe = $('.sortName');
 if (qwe === true) {
@@ -27,12 +34,14 @@ function addItem() {
   const item = {
     date: new Date,
     name: todoInput.val(),
-    completed: false
+    completed: false,
+    check: false
   };
 
   todoList.push(item);
   todoInput.val('');
   renderToDoList(todoList);
+  localStorage.setItem('todoList', JSON.stringify(todoList));
 };
 
 function renderToDoList(array) {
@@ -51,8 +60,16 @@ function renderToDoList(array) {
     deleteBtn.addClass('todo-button-delete')
     $(deleteBtn).on('click', function () {
       deleteItem(i);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
     })
     //$("#myCheckbox").prop("checked");
+    $(check).on('click', function () {
+      if (todoItem.check === false) {
+        todoItem.check = true;
+        // renderToDoList(todoList);  
+      }
+      // renderToDoList(todoList);
+    })
 
     const accept = $('<input type="image" src="image/check.png">');
     accept.addClass('todo-button-accept')
@@ -81,7 +98,7 @@ let ascDate = true;
 let ascName = true;
 
 function sortDate() {
-  if(ascDate) {
+  if (ascDate) {
     sort_ascending('date');
     ascDate = false;
   }
@@ -132,10 +149,6 @@ function sort_descending(sortName) {
 function deleteItem(index) {
   todoList.splice(index, 1)
   renderToDoList(todoList);
-}
-
-function deleteSelected(index) {
-  todoList.splice(index, 1)
 }
 
 function search() {
