@@ -1,5 +1,4 @@
-let todoList;
-todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 todoList.forEach(function(todoItem) {
   todoItem.date = new Date(todoItem.date);
 })
@@ -75,6 +74,7 @@ function renderToDoList(array) {
     accept.addClass('todo-button-accept')
     if (todoItem.completed) {
       li.addClass('button-cross-out')
+      localStorage.setItem('todoList', JSON.stringify(todoList));
     }
     $(accept).on('click', function () {
       todoItem.completed = true;
