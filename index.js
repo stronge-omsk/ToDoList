@@ -1,5 +1,5 @@
-let todoList = [];
-todoList = JSON.parse(localStorage.getItem('todoList'));
+let todoList;
+todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 todoList.forEach(function(todoItem) {
   todoItem.date = new Date(todoItem.date);
 })
